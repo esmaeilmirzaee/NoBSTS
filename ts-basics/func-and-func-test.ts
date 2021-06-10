@@ -1,6 +1,8 @@
-import { mutation, printToFile } from './func-and-func';
+import { mutation, MutationFunctionType, printToFile } from './func-and-func';
 printToFile('something', () => {
     console.log('something');
 });
 
-console.log(mutation([1, 2, 3], (v) => v * 10));
+const myCallback: MutationFunctionType = (v) => v * 10;
+
+console.log(mutation([1, 2, 3], myCallback));
