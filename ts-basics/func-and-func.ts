@@ -11,3 +11,15 @@ export const mutation = (
 ): number[] => {
     return numbers.map((num) => callback(num));
 };
+
+export type AdderFunctionType = (num: number) => number;
+
+export const adder = (num: number): AdderFunctionType => {
+    return (plusWhat: number) => num + plusWhat;
+};
+
+export type MutationArrayFunctionType = () => number[];
+
+export const mutationArray = (values: number[]): MutationArrayFunctionType => {
+    return () => values.map((v) => v * 10);
+};
