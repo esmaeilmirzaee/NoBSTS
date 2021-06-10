@@ -3,9 +3,11 @@ export const printToFile = (text: string, callback: () => void): void => {
     callback();
 };
 
+export type MutationFunctionType = (v: number) => number;
+
 export const mutation = (
     numbers: number[],
-    callback: (v: number) => number,
+    callback: MutationFunctionType,
 ): number[] => {
     return numbers.map((num) => callback(num));
 };
