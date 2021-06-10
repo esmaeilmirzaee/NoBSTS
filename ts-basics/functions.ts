@@ -14,3 +14,10 @@ interface user {
 
 export const getName = (user: user) =>
     `${user?.first ?? 'first name'} ${user?.last ?? 'last name'}`;
+
+export const salutation = (
+    salute: string = 'Hi',
+    ...names: string[]
+): string => {
+    return `${salute} ${names.join(' ')}`;
+};
