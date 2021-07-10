@@ -18,4 +18,4 @@ console.log(salutation('Hi', ['Esmaeil', 'Sam']));
 
 printFormat('Next');
 
-fetchData('https://google.com');
+console.log(fetchData('https://google.com'));
