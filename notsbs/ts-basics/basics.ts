@@ -24,3 +24,9 @@ if (ids[30] === 'thirty') {
 } else if (ids[20] === 'twenty') {
     console.log("It's twenty");
 }
+
+[12, 2, 3, 4, 56].forEach((v: number) => console.log(v));
+const valuesNumber: number[] = [12, 2, 3, 4, 56].map((v: number) => v * 10);
+const valuesString: string[] = [12, 2, 3, 4, 56].map(
+    (v: number) => `&{v * 10}`,
+);
