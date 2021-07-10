@@ -3,8 +3,11 @@ const addNumbers = (a: number, b: number) => {
 };
 export default addNumbers;
 
-export const salutation = (message: string, names: string[]): string =>
+export const salutation = (message: string, ...names: string[]): string =>
     `${message} ${names.join(' ')}`;
+
+export const introduce = (salutation: string, names: string[]): string =>
+    `${salutation} ${names.join(' ')}`;
 
 export const format = (strOne: string, strTwo: string): string =>
     `${strOne} ${strTwo}`;
@@ -16,3 +19,9 @@ export const printFormat = (strOne: string, strTwo: string = ''): void => {
 export const fetchData = (url: string): Promise<string> => {
     return Promise.resolve(`Data from ${url}.`);
 };
+
+// Misconception #1
+export const getName = (user: {
+    first_name: string;
+    last_name: string;
+}): string => `${user.first_name} ${user.last_name}`;
