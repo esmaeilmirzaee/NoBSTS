@@ -24,4 +24,4 @@ export const fetchData = (url: string): Promise<string> => {
 export const getName = (user: {
     first_name: string;
     last_name: string;
-}): string => `${user?.first_name} ${user?.last_name}`;
+}): string => `${user?.first_name ?? 'first'} ${user?.last_name ?? 'last'}`;
