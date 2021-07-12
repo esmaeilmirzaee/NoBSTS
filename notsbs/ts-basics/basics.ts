@@ -26,3 +26,17 @@ export const mapById = (users: User[]): Record<string, User> => {
         };
     }, {});
 };
+
+// Omitting an element
+type UserWithoutID = Omit<User, 'id'>;
+
+// To make returning type more variant and consistent to User's id type
+export const removeId = (u: User[]): Record<User['id'], UserWithoutID> => {
+    return u.reduce((k, v) => {
+        const { id, ...rest } = v;
+        return {
+            ...k,
+            [id]: rest,
+        };
+    }, {});
+};
