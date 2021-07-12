@@ -14,3 +14,15 @@ export const updateUser = (u: User, update: userOptionals): User => {
 
 // Required values
 type userRequired = Required<User>;
+
+// Email and name
+type UserEmailName = Pick<User, 'email' | 'name'>;
+
+export const mapById = (users: User[]): Record<string, User> => {
+    return users.reduce((u, v) => {
+        return {
+            ...u,
+            [v.id]: v,
+        };
+    }, {});
+};
