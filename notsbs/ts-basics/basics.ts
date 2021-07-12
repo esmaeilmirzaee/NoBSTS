@@ -21,6 +21,14 @@ export const getEmail = (user: User): string => {
     return '';
 };
 
-export const getEmailCoercingWay = (user: User): string => {
+export const getEmailCoalescingWay = (user: User): string => {
     return user?.info?.email ?? '';
+};
+
+export const addWithCallback = (
+    x: number,
+    y: number,
+    callback?: (a: number, b: number) => void,
+) => {
+    console.log(callback?.(x, y));
 };
