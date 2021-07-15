@@ -1,4 +1,5 @@
-import { Group, User } from './basics';
+// Read maps typed page on typescript handbook or website
+import { Group, objectModifier, User } from './basics';
 
 // Mapped Type
 const admin: User = {
@@ -15,3 +16,9 @@ const root: Group = {
 };
 
 console.log(admin, root);
+
+//
+objectModifier(admin, {
+    onNameChange: (name: string) => {},
+    onNameDelete: () => {},
+});
