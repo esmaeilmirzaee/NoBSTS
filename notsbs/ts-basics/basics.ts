@@ -19,4 +19,20 @@ export class InMemoryDatabase<KT extends keyType, VT>
     }
 }
 
-export class PersistentDatabase<KT, VT> extends InMemoryDatabase<KT, VT> {}
+interface persistentDatabase {
+    storeDatabase(): string;
+    restoreDatabase(databaseState: string): void;
+}
+
+export class PersistentDatabase<KT extends keyType, VT>
+    extends InMemoryDatabase<KT, VT>
+    implements persistentDatabase
+{
+    storeDatabase(): string {
+        return JSON.stringify(this.db);
+    }
+
+    restoreDatabase(databaseState: string) {
+        this.db = JSON.parse(databaseState);
+    }
+}
