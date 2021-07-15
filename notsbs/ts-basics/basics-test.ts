@@ -1,4 +1,4 @@
-import { User } from './basics';
+import { Group, User } from './basics';
 
 // Mapped Type
 const admin: User = {
@@ -8,4 +8,10 @@ const admin: User = {
     id: 0,
 };
 
-console.log(admin);
+const root: Group = {
+    name: 'root',
+    id: 0,
+    isRoot: true,
+};
+
+console.log(admin, root);
