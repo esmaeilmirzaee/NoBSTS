@@ -1,16 +1,22 @@
 // Classes - Generic type
-interface Database {
-    get(id: string): string;
-    set(id: string, value: string): void;
+interface Database<KT, VT> {
+    get(id: KT): VT;
+    set(id: KT, value: VT): void;
 }
 
-export class InMemoryDatabase implements Database {
-    protected db: Record<string, string> = {};
-    get(id: string): string {
+type keyType = number | string | symbol;
+
+export class InMemoryDatabase<KT extends keyType, VT>
+    implements Database<KT, VT>
+{
+    protected db: Record<KT, VT> = {} as Record<KT, VT>;
+    get(id: KT): VT {
         return this.db[id];
     }
 
-    set(id: string, value: string): void {
+    set(id: KT, value: VT): void {
         this.db[id] = value;
     }
 }
+
+export class PersistentDatabase<KT, VT> extends InMemoryDatabase<KT, VT> {}
