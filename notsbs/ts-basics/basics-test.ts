@@ -1,4 +1,4 @@
-import { User } from './basics';
+import { User, UserList } from './basics';
 
 // Readonly in class
 let admin: User = new User(1, 'admin', 1000);
@@ -13,3 +13,9 @@ admin.groupId = 2;
 
 // Property 'isAdmin' is protected and only accessible within class 'User' and its subclasses.
 // admin.isAdmin = false;
+
+let users: UserList = UserList.instance;
+users.addUser(admin);
+users.addUser(admin);
+users.addUser(admin);
+console.log(users.getUsers());
